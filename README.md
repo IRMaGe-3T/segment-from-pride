@@ -35,6 +35,8 @@ If it is the firt time you use this module, you need to configure your `config/c
 
 - OutDirectory = out directory path, the processing will be added in OutputDirectory/studyname/patientname
 
+You should add the `xmlrec.py` (see below) in the directory `/segment-from-pride/segment-from-pride`.
+
 ### Launch the module without arguments
 
 ```bash
