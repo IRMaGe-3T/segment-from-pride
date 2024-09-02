@@ -24,8 +24,13 @@ The present code will not run without this code. Please get in touch with your P
 - Once imported by PRIDE, the images can be used in scan planning by pulling them from the "Thumbnail view".
 
 ## Acquisition
-- Acquire a sagittal T1w scan, 256x256 in-plane resolution.
-- In volume view, produce three 256x256x256 images, one for each orientation, isotropic resolution. Use the "original" resolution mode when asked (not "high"). The aim is to obtain three XML/REC with proper geometry information.
+- Acquire a T1w scan with square in-plane resolution (e.g. sagittal 256x256 in-plane res.).
+- In volume view, produce three images, one for each orientation. They must be isotropic with cubic volumes. Here is how to proceed:
+  - Use the "original" resolution mode when asked (not "high"). This will keep the in-plane res. in all produced volumes.
+  - Set the number of projections to match the in-plane res. of the original scan. For example, 256 projections for a 256x256 original scan.  
+The aim is to obtain three XML/REC with proper geometry information. See the image below.
+
+![VolumeView](./images/exVolumeView.png)
 - Using PRIDE, export these three images in separate directories called "Sag", "Cor" and "Tra".
   
 ## Segment images (Python module)
@@ -44,7 +49,7 @@ python /segment-from-pride/segment-from-pride/main.py
 ```
 The following window will appear:
 
-![Module](./segment-from-pride/module.png)
+![Module](./images/module.png)
 
 - Fill "Study" and "Patient identification"
 
@@ -64,4 +69,4 @@ python /segment-from-pride/segment-from-pride/main.py --input path/to/pride/acq 
 The code runs on its own from there and produces 3 XML/REC in `OutDirectory/studyname/patientname` which can be imported back in the console with a single PRIDE call (copy the 6 files in the `dirXmlRecOut`, see below).
   
 # Possible improvements
-- Producing three 256x256x256 volumes allows to obtain XML files with correct geometry information, which avoids computing all the offcenters from the sagittal scan. There may be a cleaner wat with fewer PRIDE exports to implement. 
+- Producing three cubic volumes allows to obtain XML files with correct geometry information, which avoids computing all the offcenters from the sagittal scan. There may be a cleaner wat with fewer PRIDE exports to implement. 
