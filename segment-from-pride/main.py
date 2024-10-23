@@ -101,7 +101,7 @@ class App(QMainWindow):
         self.setWindowTitle("PRIDE Tool")
 
         # Set window icon
-        icon_path = os.path.join(self.dir_code_path, "icon.png")
+        icon_path = os.path.join(os.path.dirname(self.dir_code_path), "images", "icon.png")
         self.setWindowIcon(QtGui.QIcon(icon_path))
 
         # Get ui
