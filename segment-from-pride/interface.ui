@@ -127,7 +127,7 @@
        </font>
       </property>
       <property name="text">
-       <string>181 185 201 207</string>
+       <string>181 185 201 207 143 191</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
